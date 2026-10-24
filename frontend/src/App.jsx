@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+
 export default function App() {
   const [activeTab, setActiveTab] = useState('encrypt');
   const [file, setFile] = useState(null);
@@ -44,7 +46,7 @@ export default function App() {
     const endpoint = activeTab === 'encrypt' ? '/api/encrypt' : '/api/decrypt';
 
     try {
-      const res = await fetch(`http://localhost:8000${endpoint}`, {
+      const res = await fetch(`${API_BASE_URL}${endpoint}`, {
         method: 'POST',
         body: formData,
       });
@@ -217,7 +219,7 @@ export default function App() {
 
             {activeTab === 'encrypt' && fileId && (
               <a
-                href={`http://localhost:8000/api/download/${fileId}`}
+                href={`${API_BASE_URL}/api/download/${fileId}`}
                 className="mt-3 text-xs text-indigo-400 hover:text-indigo-300 underline font-medium"
               >
                 Download Lossless Cipher Payload (.npz)

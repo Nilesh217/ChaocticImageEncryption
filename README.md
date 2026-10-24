@@ -211,14 +211,36 @@ Because $2^{150} \gg 2^{128}$, the key space is sufficiently vast to render brut
 
 ## ⚡ Getting Started
 
-### Prerequisites
+### 🐳 Quick Start with Docker (Recommended)
+
+To run the entire full stack (FastAPI backend + Nginx-served React frontend) with a single command:
+```bash
+docker compose up --build
+```
+- **Frontend UI**: [http://localhost:5173](http://localhost:5173)
+- **Backend API & Swagger Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
+
+To run in the background (detached mode):
+```bash
+docker compose up -d --build
+```
+To stop containers:
+```bash
+docker compose down
+```
+
+---
+
+### Manual Local Setup
+
+#### Prerequisites
 - **Python**: Version 3.10 or higher
 - **Node.js**: Version 18.x or higher
 - **Package Managers**: `pip` and `npm`
 
 ---
 
-### 1. Backend Setup
+#### 1. Backend Setup
 
 1. Open a terminal and navigate to the `backend/` directory:
    ```bash
